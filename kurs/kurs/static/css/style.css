@@ -1,0 +1,66 @@
+:root {
+  --background-color: #EFEFF3;
+  --ntnu-blue: #00509e;
+  --gray-1: #868179;
+}
+
+body {
+  background-color: var(--background-color);
+}
+.container {
+  width: 95%;
+  padding-top: 10px;
+}
+
+.card-content {
+  min-height: 90vh;
+}
+
+#add-icon {
+  vertical-align: text-bottom;
+}
+
+#checkbox-container {
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+#checkbox-container label {
+  left: 0;
+}
+
+.ntnu-blue {
+  background-color: var(--ntnu-blue) !important;
+}
+
+
+/* Negate the blue on checkbox labels */
+.input-field input[type=checkbox] + label {
+    color: var(--gray-1) !important;
+}
+
+[type=checkbox].filled-in:checked+label:after {
+    background-color: var(--ntnu-blue);
+    border: 2px solid var(--ntnu-blue);
+}
+
+[type=checkbox]:checked+label:before {
+    border-right: 2px solid var(--ntnu-blue);
+    border-bottom: 2px solid var(--ntnu-blue);
+}
+
+/* Color of the input fields bottom border when in focus */
+.input-field :focus {
+    border-bottom: 1px solid var(--ntnu-blue) !important;
+    box-shadow: 0 1px 0 0 var(--ntnu-blue) !important;
+}
+
+/* Color of input labels */
+.input-field label {
+    color: var(--gray-1);
+}
+
+/* Color on input labels when in focus */
+.input-field :focus + label {
+    color: var(--ntnu-blue) !important;
+}

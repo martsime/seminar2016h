@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width"/>
+  <title>Seminar 2016H</title>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"/>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  <script type="text/javascript" src="{% static  'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static  'js/materialize.min.js' %}"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Legg til nytt Orakel</span>
+          {% if form %}
+            <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="input-field col s12">
+                {{ form.name.errors }}
+                {{ form.name }}
+                <label>Navn</label>
+              </div>
+              <div class="input-field col s12">
+                {{ form.username.errors }}
+                {{ form.username }}
+                <label>Brukernavn</label>
+              </div>
+              <div class="input-field col s12">
+                {{ form.age.errors }}
+                {{ form.age }}
+                <label>Alder</label>
+              </div>
+              <div id="checkbox-container" class="input-field col s12">
+                <input type="checkbox" class="filled-in" id="{{ form.single.id_for_label }}" name="{{ form.single.name }}" value="True"/>
+                <label for="{{ form.single.id_for_label }}">Singel</label>
+              </div>
+            </div>
+          {% else %}
+            <p>Det finnes ingen form enda</p>
+          {% endif %}
+          <button id="submit-button" class="btn waves-effect waves-light ntnu-blue" type="submit" name="action">Legg til
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

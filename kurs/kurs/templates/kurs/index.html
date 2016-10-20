@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width"/>
+  <title>Seminar 2016H</title>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"/>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  <script type="text/javascript" src="{% static  'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static  'js/materialize.min.js' %}"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Orakler</span>
+          <a href="/add"><img id="add-icon" src="{% static '/images/add.svg' %}"></a>
+          {% if orakler %}
+            <table class="striped">
+              <thead>
+              <tr>
+                <th data-field="name">Navn</th>
+                <th data-field="username">Brukernavn</th>
+                <th data-field="age">Alder</th>
+                <th data-field="relationship">Singel</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for orakel in orakler %}
+                <tr>
+                  <td>{{ orakel.name }}</td>
+                  <td>{{ orakel.username }}</td>
+                  <td>{{ orakel.age }}</td>
+                  <td>
+                    {% if orakel.single %}
+                      <img src="{% static '/images/thumb_up.svg' %}">
+                    {% else %}
+                      <img src="{% static '/images/thumb_down.svg' %}">
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p>Det finnes ingen Orakler i databasen</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
