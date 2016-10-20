@@ -1,5 +1,6 @@
 # /
 *.s3db
+*.sqlite3
 *.pyc
 *.swp
 .AppleDouble
