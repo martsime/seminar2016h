@@ -1,0 +1,13 @@
+# /
+*.s3db
+*.pyc
+*.swp
+.AppleDouble
+/static/
+/media/upload/
+/env/
+.DS_Store
+*.AppleDouble
+*.DS_Store
+._*
+/.idea/
